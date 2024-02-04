@@ -1,0 +1,56 @@
+<div style="padding-bottom: 200px">
+  <h4
+    style="
+      margin: 40px;
+      margin-left: 80px;
+      margin-bottom: 50px;
+      font-weight: bold;
+    "
+  >
+    My Cart
+  </h4>
+
+  <div class="d-flex">
+    <h6 style="margin-left: 300px; margin-right: 350px">Description</h6>
+    <h6 style="margin-right: 200px">Quantity</h6>
+    <h6 style="margin-right: 100px">Remove</h6>
+    <h6>Price</h6>
+  </div>
+
+  <hr style="margin-top: 10px" />
+
+  @for(item of shoppinglist; track item){
+  <div
+    class="d-flex align-items-center mx-auto"
+    style="
+      width: 1400px;
+      margin-top: 20px;
+      box-shadow: 0px 0px 5px 0px rgba(193, 193, 193, 0.5);
+    "
+  >
+    <img
+      style="
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        margin-left: 110px;
+        margin-right: 40px;
+      "
+      src="{{ item.thumbnail }}"
+      alt="product-thumbnail"
+    />
+    <h6 style="margin-right: 150px; width: 200px">{{ item.title }}</h6>
+    <button class="btn btn-success me-3" (click)="increaseQuantity(item)">+1</button>
+    <p class="me-3 d-flex" style="padding-top: 13px">{{ item.quantity }}</p>
+    <button class="btn btn-danger" (click)="decreaseQuantity(item)">-1</button>
+    <button
+      class="btn btn-outline-danger"
+      style="margin-left: 180px; margin-right: 100px"
+      (click)="removeFromShoppingList(item)"
+    >
+      X
+    </button>
+    <h6>${{ item.price * item.quantity }}<small>.00</small></h6>
+  </div>
+  }
+</div>

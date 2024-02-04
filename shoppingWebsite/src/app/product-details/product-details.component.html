@@ -1,0 +1,32 @@
+<div class="row grid d-flex justify-content-center product" >
+    <div style="width: 26rem; height: 600px; border: none; padding: 0;" >
+        <img src={{product.thumbnail}} class="mythumbnail" alt="...">
+    </div>
+        <div class="card col-md-4" style="width: 24rem; height: 500px; border: none; padding-left: 10px;">
+            <div class="card-body">
+                <h3 class="card-title" style="font-weight: bold;" >{{product.title}}</h3>
+                <h6 class="card-text">{{product.description}}.</h6>
+                <p>
+                   <ngb-rating [max]=5 [rate]="product.rating || 0" [readonly]="true" style="color: orangered;"></ngb-rating>
+                  <span style="font-size: small;">
+                    {{product.rating}}
+                  </span>
+                </p>
+                <hr />
+            @if(product.stock > 0){
+                <h5 style="color: green;" >In Stock</h5>
+            }@else {
+                <h5 style="color: red;" >Out Of Stock</h5>
+            }
+              <h4 class="card-text">${{product.price}}.<span style="font-size: small;">00</span></h4>
+              @if(product.stock < 10){
+                  <h6 style="color: red;" class="warning" >less than 10 items available !</h6>
+            }
+            <hr />
+            <span>{{product.brand}} , </span>
+            <span>{{product.category}}</span>
+              <a href="#" class="btn btn-primary addtocart">Add to cart</a>
+              <a href="#" class="btn btn-primary buynow">Buy Now</a>
+            </div>
+          </div>  
+</div>

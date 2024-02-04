@@ -1,0 +1,36 @@
+<h6 style="margin: 40px;">Welcome to AliMama.com , Start browsing.... </h6>
+
+
+<div class="row grid gap-4 d-flex justify-content-center " >
+    @for(product of productsList; track product){
+        <div class="card col-md-4" style="width: 18rem; height: 450px; border: none; padding-left: 0; padding-right: 0;">
+          <div>
+            <a [routerLink]="['/homePage',product.id]" class="product-title">
+              <img src={{product.thumbnail}}  class="card-img-top mythumbnail" alt="...">
+              @if(product.stock > 0){
+                <button class="btn btn-success stock">In Stock</button>
+              }@else {
+                <button class="btn btn-danger stock">Out Of Stock</button>
+              }
+            </a>
+            
+          </div>
+            <div class="card-body">
+              <a [routerLink]="['homePage' , product.id ]" class="product-title">
+                <h5 class="card-title" >{{product.title.substring(0,20)}}.</h5>
+              </a>
+              <p class="card-text">{{product.description.substring(0,60)}}...</p>
+              <h6 class="card-text"> <strong>Price :</strong> {{product.price}}.00 $</h6>
+              <p>
+                Rating:
+                <ngb-rating [max]=5 [rate]="product.rating || 0" [readonly]="true" style="color: orangered;"></ngb-rating>
+                <span style="font-size: small;">
+                  {{product.rating}}
+                </span>
+    
+              </p>
+              <a href="#" class="btn btn-primary addtocart" (click)="handleAddToCart(product)" >Add to cart</a>
+            </div>
+          </div>
+    }    
+</div>

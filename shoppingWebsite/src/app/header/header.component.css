@@ -1,0 +1,20 @@
+.nav-link:hover{
+    text-decoration: underline;
+}
+
+.mynav {
+    margin-bottom: 40px;
+   
+}
+
+
+/* .cartItemsNumber {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 12px;
+} */
